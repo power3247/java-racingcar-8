@@ -15,9 +15,9 @@
 - [ ] 자동차 Car
   - [ ] 자동차 이름이 5자 이하 검증 validate.carNameLength()
   - [ ] 자동차 전진/멈춤 
-    - [ ] 0에서 9사이 무작윗값 구하기 CarNumberGenerator.generate()
+    - [x] 0에서 9사이 무작윗값 구하기 CarNumberGenerator.generate()
     - [ ] 무작윗값이 4 이상 전진, 미만 멈춤 Car#move()
-  - [ ] 자동차 현재 위치 Car.position
+  - [ ] 자동차 현재 위치 리턴 Car#getPosition()
 
 - [ ] 자동차들 Cars
   - [ ] 자동차 갯수 Cars.lineup
