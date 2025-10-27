@@ -126,4 +126,58 @@ class CarsTest {
                 .extracting(Cars.CarStatus::position) // .getPosition() -> .position()
                 .containsExactly(1, 0);
     }
+
+    @Test
+    @DisplayName("단독 우승자")
+    void getWinnersSolo() {
+        Car pobi = new Car("pobi", () -> 5);  //전진
+        Car crong = new Car("crong", () -> 3);//정지
+        Car honux = new Car("honux", () -> 5);//전진
+
+        pobi.move();
+        pobi.move();  // pobi = 2 (우승)
+        honux.move(); // honux = 1
+                      // crong = 0
+
+        Cars cars = new Cars(Arrays.asList(pobi, crong, honux));
+
+        List<String> winners = cars.getWinners();
+
+        assertThat(winners).hasSize(1);
+        assertThat(winners).containsExactly("pobi");
+    }
+
+    @Test
+    @DisplayName("공동 우승자")
+    void getWinnersTogether() {
+        Car pobi = new Car("pobi", () -> 5);
+        Car crong = new Car("crong", () -> 3);
+        Car honux = new Car("honux", () -> 5);
+
+        pobi.move();  // pobi = 1 (공동 우승)
+        // crong = 0
+        honux.move(); // honux = 1 (공동 우승)
+
+        Cars cars = new Cars(Arrays.asList(pobi, crong, honux));
+
+        List<String> winners = cars.getWinners();
+
+        // 4. pobi와 honux가 모두 포함되어 있는지 확인
+        assertThat(winners).hasSize(2);
+        assertThat(winners).containsExactlyInAnyOrder("pobi", "honux");
+    }
+
+    @Test
+    @DisplayName("모두0점")
+    void getWinnersAllZeroes() {
+        Car pobi = new Car("pobi", () -> 3);   // pobi = 0 (공동 우승)
+        Car crong = new Car("crong", () -> 3); // crong = 0 (공동 우승)
+
+        Cars cars = new Cars(Arrays.asList(pobi, crong));
+
+        List<String> winners = cars.getWinners();
+
+        assertThat(winners).hasSize(2);
+        assertThat(winners).containsExactlyInAnyOrder("pobi", "crong");
+    }
 }

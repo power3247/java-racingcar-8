@@ -19,19 +19,19 @@
     - [x] 무작윗값이 4 이상 전진, 미만 멈춤 Car#move()
   - [x] 자동차 현재 위치 리턴 Car#getPosition()
 
-- [ ] 자동차들 Cars
+- [x] 자동차들 Cars
   - [x] 입력값으로 자동차 라인업 생성 Cars.makeLineup()
     - [x] 입력된 이름문자열을 문자열 리스트로 Cars.nameParser() 
     - [x] 입력된 이름으로 n대의 자동차 생성 Cars.lineupParser()
   - [x] 모든 자동차 1회 전진 Cars#moveAllCars()
   - [x] 모든 자동차 상태 확인 반환 Cars#getRoundStatus()
+  - [x] 우승자 판별 Cars#getWinners()
+    - [x] 모든 자동차 상태 확인후 최댓값 찾기 Cars#getMaxPosition()
+    - [x] 우승자 1명 이상일수 있음.
 
 - [ ] 게임 Game
    - [ ] 입력된 횟수만큼 자동차 전진,멈춤 반복
    - [ ] 게임 완료
-   - [ ] 우승자 판별
-     - [ ] 모든 자동차 상태 확인후 우승자 판별
-     - [ ] 우승자 1명 이상일수 있음.
    - [ ] 공동 우승시 쉼표(,) 로 구분
 
 - [ ] 에러(예외처리) Validate

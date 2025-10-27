@@ -48,8 +48,23 @@ public class Cars {
 
     public List<CarStatus> getRoundStatus() {
         return lineup.stream()
-                // 'new CarStatus(...)' 호출은 record에서도 동일합니다.
                 .map(car -> new CarStatus(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxPosition() {
+        return lineup.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0); // lineup이 비어있을 경우 0 반환
+    }
+
+    public List<String> getWinners() {
+        int maxPosition = getMaxPosition();
+
+        return lineup.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 
