@@ -8,8 +8,15 @@ public class Cars {
     private List<Car> lineup;
 
     public void makeLineup(String racers) {
+        validateRacersString(racers);
         List<String> racerList = nameParser(racers);
         this.lineup = lineupParser(racerList);
+    }
+
+    private void validateRacersString(String racers) {
+        if (racers == null || racers.trim().isEmpty()) {
+            throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
+        }
     }
 
     private List<String> nameParser(String racers) {
@@ -23,6 +30,7 @@ public class Cars {
                 .map(Car::readyCar)
                 .collect(Collectors.toList());
     }
+
     // 변화 상태 확인
     List<Car> getLineup() {
         return java.util.Collections.unmodifiableList(lineup);

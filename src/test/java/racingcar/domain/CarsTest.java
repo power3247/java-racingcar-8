@@ -50,9 +50,11 @@ class CarsTest {
     void makeLineupNullTest() {
         String racers = null;
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             cars.makeLineup(racers);
         });
+
+        assertThat(exception.getMessage()).contains("이름이 입력되지 않았습니다.");
     }
 
     @Test
@@ -60,9 +62,11 @@ class CarsTest {
     void makeLineupBlankTest() {
         String racers = "";
 
-        assertThrows(IllegalArgumentException.class, () -> {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             cars.makeLineup(racers);
         });
+
+        assertThat(exception.getMessage()).contains("이름이 입력되지 않았습니다.");
     }
 
 
@@ -80,7 +84,7 @@ class CarsTest {
 
     @Test
     @DisplayName("쉼표가 연속으로 빈이름 포함")
-    void makeLineup_빈_이름_포함_예외() {
+    void makeLineupContinuousCommaTest() {
         String racers = "pobi,,crong";
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
