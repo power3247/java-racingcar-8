@@ -23,8 +23,8 @@
   - [x] 입력값으로 자동차 라인업 생성 Cars.makeLineup()
     - [x] 입력된 이름문자열을 문자열 리스트로 Cars.nameParser() 
     - [x] 입력된 이름으로 n대의 자동차 생성 Cars.lineupParser()
-  - [ ] 모든 자동차 1회 전진 Cars#moveAllCars()
-  - [ ] 모든 자동차 상태 확인 Cars#getRoundStatus()
+  - [x] 모든 자동차 1회 전진 Cars#moveAllCars()
+  - [x] 모든 자동차 상태 확인 반환 Cars#getRoundStatus()
 
 - [ ] 게임 Game
    - [ ] 입력된 횟수만큼 자동차 전진,멈춤 반복

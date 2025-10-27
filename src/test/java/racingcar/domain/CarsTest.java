@@ -107,6 +107,23 @@ class CarsTest {
     }
 
     @Test
+    @DisplayName("현재 Car들의 상태를 record 리스트로 정확히 반환한다")
     void getRoundStatusTest() {
+        Car pobi = new Car("pobi", () -> 5);
+        Car crong = new Car("crong", () -> 3);
+        pobi.move();
+        Cars cars = new Cars(Arrays.asList(pobi, crong));
+
+        List<Cars.CarStatus> statuses = cars.getRoundStatus();
+
+        assertThat(statuses).hasSize(2);
+
+        assertThat(statuses)
+                .extracting(Cars.CarStatus::name) // .getName() -> .name()
+                .containsExactly("pobi", "crong");
+
+        assertThat(statuses)
+                .extracting(Cars.CarStatus::position) // .getPosition() -> .position()
+                .containsExactly(1, 0);
     }
 }

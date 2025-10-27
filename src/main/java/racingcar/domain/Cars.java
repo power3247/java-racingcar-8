@@ -44,10 +44,13 @@ public class Cars {
     public void moveAllCars() {
         lineup.forEach(Car::move);
     }
+    public record CarStatus(String name, int position) {}
 
-    //TODO: View를 위해 CarStatus를 반환
-    public void getRoundStatus() {
-
+    public List<CarStatus> getRoundStatus() {
+        return lineup.stream()
+                // 'new CarStatus(...)' 호출은 record에서도 동일합니다.
+                .map(car -> new CarStatus(car.getName(), car.getPosition()))
+                .collect(Collectors.toList());
     }
 
 }
