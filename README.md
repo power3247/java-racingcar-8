@@ -13,17 +13,18 @@
     - [ ] 자동차 출력시 이름 같이 출력
 
 - [x] 자동차 Car
-  - [x] 자동차 이름이 5자 이하 검증 validate.carNameLength()
+  - [x] 자동차 이름이 5자 이하 검증 Car#validateName()
   - [x] 자동차 전진/멈춤 
     - [x] 0에서 9사이 무작윗값 구하기 CarNumberGenerator.generate()
     - [x] 무작윗값이 4 이상 전진, 미만 멈춤 Car#move()
   - [x] 자동차 현재 위치 리턴 Car#getPosition()
 
 - [ ] 자동차들 Cars
-  - [ ] 자동차 갯수 Cars.lineup
-  - [ ] 입력된 이름으로 n대의 자동차 생성(로직을 책임지는 일급컬렉션(Cars) 객체생성)
-  - [ ] 모든 자동차 1회 전진
-  - [ ] 모든 자동차 상태 확인
+  - [ ] 자동차 라인업 Cars.lineup
+    - [ ] 문자열로 자동차 라인업 생성 Cars#makeLineup()
+  - [ ] 입력된 이름으로 n대의 자동차 생성 Cars()
+  - [ ] 모든 자동차 1회 전진 Cars#moveAllCars()
+  - [ ] 모든 자동차 상태 확인 Cars#getRoundStatus()
 
 - [ ] 게임 Game
    - [ ] 입력된 횟수만큼 자동차 전진,멈춤 반복
