@@ -25,6 +25,10 @@ public class Car {
         return position;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public static Car readyCar(String name) {
         return new Car(name, new CarNumberGenerator());
     }
