@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
@@ -87,4 +88,25 @@ class CarsTest {
         assertThat(exception.getMessage()).contains("자동차 이름은 1자 이상 5자 이하여야 합니다.");
     }
 
+    @Test
+    void moveAllCarsTest() {
+
+        NumberGenerator alwaysMoveStub = () -> 5;
+
+        Car pobi = new Car("pobi", alwaysMoveStub);
+        Car crong = new Car("crong", alwaysMoveStub);
+
+
+        Cars cars = new Cars(Arrays.asList(pobi, crong));
+
+        cars.moveAllCars();
+
+        assertThat(pobi.getPosition()).isEqualTo(1);
+        assertThat(crong.getPosition()).isEqualTo(1);
+
+    }
+
+    @Test
+    void getRoundStatusTest() {
+    }
 }
