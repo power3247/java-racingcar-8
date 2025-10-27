@@ -12,12 +12,12 @@
     - [ ] 우승자 안내
     - [ ] 자동차 출력시 이름 같이 출력
 
-- [ ] 자동차 Car
-  - [ ] 자동차 이름이 5자 이하 검증 validate.carNameLength()
+- [x] 자동차 Car
+  - [x] 자동차 이름이 5자 이하 검증 validate.carNameLength()
   - [x] 자동차 전진/멈춤 
     - [x] 0에서 9사이 무작윗값 구하기 CarNumberGenerator.generate()
     - [x] 무작윗값이 4 이상 전진, 미만 멈춤 Car#move()
-  - [ ] 자동차 현재 위치 리턴 Car#getPosition()
+  - [x] 자동차 현재 위치 리턴 Car#getPosition()
 
 - [ ] 자동차들 Cars
   - [ ] 자동차 갯수 Cars.lineup
