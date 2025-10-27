@@ -1,6 +1,5 @@
 package racingcar.domain;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -10,19 +9,13 @@ import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CarsTest {
-    private Cars cars;
-
-    @BeforeEach
-    void setUp() {
-        cars = new Cars();
-    }
 
     @Test
     @DisplayName("정상적 케이스")
     void makeLineupTest() {
         String racers = "pobi, crong";
 
-        cars.makeLineup(racers);
+        Cars cars = Cars.makeLineup(racers);
 
         List<Car> lineup = cars.getLineup();
         assertThat(lineup).hasSize(2);
@@ -37,7 +30,7 @@ class CarsTest {
     void makeLineupTrimTest() {
         String racers = "  pobi , crong,honux  ";
 
-        cars.makeLineup(racers);
+        Cars cars = Cars.makeLineup(racers);
 
         List<Car> lineup = cars.getLineup();
         assertThat(lineup).hasSize(3);
@@ -51,7 +44,7 @@ class CarsTest {
         String racers = null;
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            cars.makeLineup(racers);
+            Cars.makeLineup(racers);
         });
 
         assertThat(exception.getMessage()).contains("이름이 입력되지 않았습니다.");
@@ -63,7 +56,7 @@ class CarsTest {
         String racers = "";
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            cars.makeLineup(racers);
+            Cars.makeLineup(racers);
         });
 
         assertThat(exception.getMessage()).contains("이름이 입력되지 않았습니다.");
@@ -76,7 +69,7 @@ class CarsTest {
         String racers = "pobi, veryLongName";
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            cars.makeLineup(racers);
+            Cars.makeLineup(racers);
         });
 
         assertThat(exception.getMessage()).contains("자동차 이름은 1자 이상 5자 이하여야 합니다.");
@@ -88,7 +81,7 @@ class CarsTest {
         String racers = "pobi,,crong";
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            cars.makeLineup(racers);
+            Cars.makeLineup(racers);
         });
 
         assertThat(exception.getMessage()).contains("자동차 이름은 1자 이상 5자 이하여야 합니다.");

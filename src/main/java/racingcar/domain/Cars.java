@@ -7,25 +7,30 @@ import java.util.stream.Collectors;
 public class Cars {
     private List<Car> lineup;
 
-    public void makeLineup(String racers) {
-        validateRacersString(racers);
-        List<String> racerList = nameParser(racers);
-        this.lineup = lineupParser(racerList);
+    Cars(List<Car> lineup) {
+        this.lineup = lineup;
     }
 
-    private void validateRacersString(String racers) {
+    public static Cars makeLineup(String racers) {
+        validateRacersString(racers);
+        List<String> racerList = nameParser(racers);
+        List<Car> carList = lineupParser(racerList);
+        return new Cars(carList);
+    }
+
+    private static void validateRacersString(String racers) {
         if (racers == null || racers.trim().isEmpty()) {
             throw new IllegalArgumentException("이름이 입력되지 않았습니다.");
         }
     }
 
-    private List<String> nameParser(String racers) {
+    private static List<String> nameParser(String racers) {
         return Arrays.stream(racers.split(","))
                 .map(String::trim)
                 .collect(Collectors.toList());
     }
 
-    private List<Car> lineupParser(List<String> racerList) {
+    private static List<Car> lineupParser(List<String> racerList) {
         return racerList.stream()
                 .map(Car::readyCar)
                 .collect(Collectors.toList());
@@ -36,10 +41,8 @@ public class Cars {
         return java.util.Collections.unmodifiableList(lineup);
     }
 
-
-    //TODO: 모든 자동차 1회 전진 기능
     public void moveAllCars() {
-        //TODO: racerLineup을 순회 해서 각 Car객체의 상태 바꾸기 Car#move() 사용
+        lineup.forEach(Car::move);
     }
 
     //TODO: View를 위해 CarStatus를 반환
