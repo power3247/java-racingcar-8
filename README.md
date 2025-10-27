@@ -20,9 +20,9 @@
   - [x] 자동차 현재 위치 리턴 Car#getPosition()
 
 - [ ] 자동차들 Cars
-  - [ ] 자동차 라인업 Cars.lineup
-    - [ ] 문자열로 자동차 라인업 생성 Cars#makeLineup()
-  - [ ] 입력된 이름으로 n대의 자동차 생성 Cars()
+  - [x] 입력값으로 자동차 라인업 생성 Cars#makeLineup()
+    - [x] 입력된 이름문자열을 문자열 리스트로 Cars#nameParser() 
+    - [x] 입력된 이름으로 n대의 자동차 생성 Cars#lineupParser()
   - [ ] 모든 자동차 1회 전진 Cars#moveAllCars()
   - [ ] 모든 자동차 상태 확인 Cars#getRoundStatus()
 
