@@ -48,7 +48,8 @@ public class Game {
     }
 
     private void concludeGame(Cars cars) {
-
+        List<String> winnerNames = cars.getWinners();
+        output.printWinners(winnerNames);
     }
 
 }

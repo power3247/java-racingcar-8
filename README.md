@@ -6,12 +6,13 @@
 - [x] 입출력 view
   - [x] 인터페이스 생성 (Game 테스트를 위해) 
   - [x] 입력 Input
-      - [x] 자동차 이름 입력받기 (쉼표(,) 기준으로 구분)
-      - [x] 시도할 횟수 입력받기
+      - [x] 자동차 이름 입력받기 (쉼표(,) 기준으로 구분) Input#readCarNames()
+      - [x] 시도할 횟수 입력받기 Input#readTryCount()
   - [x] 출력 Output
-    - [x] 차수별 실행 결과
-    - [x] 우승자 안내
-    - [x] 자동차 출력시 이름 같이 출력
+    - [x] 차수별 실행 결과 Output#printRoundStatus()
+      - [x] 자동차 출력시 이름 같이 출력 Cars.CarStatus
+    - [x] 우승자 안내 Output@printWinners()
+      - [x] 공동우승시 ,로 분리
 
 - [x] 자동차 Car
   - [x] 자동차 이름이 5자 이하 검증 Car#validateName()
@@ -30,16 +31,18 @@
     - [x] 모든 자동차 상태 확인후 최댓값 찾기 Cars#getMaxPosition()
     - [x] 우승자 1명 이상일수 있음.
 
-- [ ] 게임 Game
-   - [ ] 입력된 횟수만큼 자동차 전진,멈춤 반복
-   - [ ] 게임 완료
-   - [ ] 공동 우승시 쉼표(,) 로 구분
+- [x] 게임 Game
+   - [x] 입력된 횟수만큼 자동차 전진,멈춤 반복 Game#runRounds()
+   - [x] 게임 완료 Game#concludeGame() 
 
-- [ ] 에러(예외처리) Validate
-   - [ ] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료
-     - [ ] 자동차 이름 5자 초과
-     - [ ] 시도할 횟수가 숫자가 아님
-     - [ ] 시도할 횟수가 0 이하
+- [x] 에러(예외처리) Validate
+   - [x] 사용자가 잘못된 값을 입력할 경우 IllegalArgumentException을 발생시킨 후 애플리케이션은 종료
+     - [x] 자동차 이름 5자 초과 Car#validateName()
+     - [x] 자동차 이름 1자 미만 Car#validateName()
+     - [x] 시도할 횟수가 숫자가 아님 Input#readTryCount()
+     - [x] 시도할 횟수가 0 이하 Game@setupTryCount()
+     - [x] 입력에 콤마 연속 등장 (,,)  Car#validateName()
+     - [x] 공백, null 입력  Cars.validateRacersString()
 
 ## 요구사항
 ### 기능 요구 사항
